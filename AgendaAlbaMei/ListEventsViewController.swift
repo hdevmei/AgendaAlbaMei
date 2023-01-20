@@ -3,20 +3,12 @@ import UIKit
 import Foundation
 
 
-
-
-
 class ListEventsViewController: UIViewController{
-
 
     var ArrayEvents = [Event]()
 
 
     @IBOutlet weak var myTable: UITableView!
-
-    
-
-
 
     override func viewDidLoad() {
 
@@ -35,9 +27,7 @@ class ListEventsViewController: UIViewController{
     
 
     func fetchData(){
-        
         var data = Data()
-
         let url = URL(string: "https://superapi.netlify.app/api/db/eventos")
         
         do{
@@ -45,13 +35,9 @@ class ListEventsViewController: UIViewController{
         }catch{
             print("Data not founded")
         }
-
         
             print(data)
             
-           
-
-
             do{
 
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
@@ -76,22 +62,14 @@ class ListEventsViewController: UIViewController{
                     self.myTable.reloadData()
                 }
 
-            
                 print(data)
             }
-
+        
             catch{
                 print("Error while decoding json \(error)")
             }
-            
-
+    
     }
-
-    
-
-    
-
-    
 
 }
 
@@ -114,15 +92,21 @@ extension ListEventsViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! row
 
         
-
         let evento = self.ArrayEvents[indexPath.row]
+        // format date
+        
+        let timeInterval = TimeInterval(ArrayEvents[indexPath.row].date / 1000)
+        let dateChanged = Date(timeIntervalSince1970: timeInterval)
+        
+        cell.name.text = evento.name
+        cell.date.text = dateChanged.formatted().description
 
         
-
-        cell.name.text = evento.name
-
-        cell.date.text = String("\(evento.date)")
-
+        
+       
+        
+        
+        
         
 
         return cell
