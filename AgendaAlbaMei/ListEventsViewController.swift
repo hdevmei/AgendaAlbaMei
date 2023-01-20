@@ -1,62 +1,143 @@
-//
-//  ListEventsViewController.swift
-//  AgendaAlbaMei
-//
-//  Created by Apps2M on 17/1/23.
-//
-
 import UIKit
+
 import Foundation
 
 
-class ListEventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    
-    var eventosProvisionales = ["comida faimiliar", "presentación", "Concierto", "Graduación", "Rodaje", "Examen", "Peluquería"]
-    
-    
+
+
+
+class ListEventsViewController: UIViewController{
+
+
+    var ArrayEvents = [Event]()
+
+
     @IBOutlet weak var myTable: UITableView!
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventosProvisionales.count
-    }
+
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel!.text = eventosProvisionales[indexPath.row]
-        
-        return cell
-    }
-    
-    
+
+
+
     override func viewDidLoad() {
+
         super.viewDidLoad()
+
+        fetchData()
+
         myTable.dataSource = self
+
         myTable.delegate = self
-        // Do any additional setup after loading the view
-        fetchingApiData(URL: "https://jsonplaceholder.typicode.com/todos") {result in
-             print(result)
-        }
+
+        print(ArrayEvents)
+
     }
 
+    
 
-    func fetchingApiData(URL url:String, completion: @escaping ([ToDo]) -> Void){
-        let url = URL(string: url)
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: url!) {data, response, error in
-            if data != nil && error == nil {
-                do{
-                    let parsingData = try JSONDecoder().decode([ToDo].self, from: data!)
-                    completion(parsingData)
-                } catch {
-                    print("Parsing Error")
+    func fetchData(){
+        
+        var data = Data()
+
+        let url = URL(string: "https://superapi.netlify.app/api/db/eventos")
+        
+        do{
+            data = try Data(contentsOf: url!)
+        }catch{
+            print("Data not founded")
+        }
+
+        
+            print(data)
+            
+           
+
+
+            do{
+
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                
+                var eList: [Any] = []
+                
+                for e in json as! [Any] {
+                    if type(of: e) != NSNull.self{
+                        eList.append(e)
+                    }
                 }
+                
+                for e in eList as! [[String:Any]]{
+                    
+                    self.ArrayEvents.append(Event(json: e))
+                    
+                }
+
+                print(eList)
+
+                DispatchQueue.main.async {
+                    self.myTable.reloadData()
+                }
+
+            
+                print(data)
             }
-        }
-        dataTask.resume()
+
+            catch{
+                print("Error while decoding json \(error)")
+            }
+            
+
     }
+
     
+
     
+
+    
+
 }
 
 
 
+
+
+extension ListEventsViewController: UITableViewDelegate, UITableViewDataSource{
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        return ArrayEvents.count
+
+    }
+
+    
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! row
+
+        
+
+        let evento = self.ArrayEvents[indexPath.row]
+
+        
+
+        cell.name.text = evento.name
+
+        cell.date.text = String("\(evento.date)")
+
+        
+
+        return cell
+
+    }
+
+}
+
+
+struct Event: Decodable{
+    let name: String
+    let date: Double
+    
+    init(json: [String:Any]) {
+        name = json["name"] as? String ?? ""
+        date = json["date"] as? Double ?? 0
+    }
+}
