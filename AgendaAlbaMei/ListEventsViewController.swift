@@ -116,12 +116,3 @@ extension ListEventsViewController: UITableViewDelegate, UITableViewDataSource{
 }
 
 
-struct Event: Decodable{
-    let name: String
-    let date: Double
-    
-    init(json: [String:Any]) {
-        name = json["name"] as? String ?? ""
-        date = json["date"] as? Double ?? 0
-    }
-}

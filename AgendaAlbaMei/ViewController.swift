@@ -9,15 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
     var usernameProvisional = "Mei"
-    
     var contrasenaProvisional = "1234"
-    
     var userNameIntroducido = ""
     var contrasenaIntroducida = ""
-    
     var loginCorrect: Bool = false
     
-    
+
     
     
     @IBAction func UserNameChange(_ sender: UITextField) {
@@ -36,6 +33,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        UserManager.getUsers()
         
     }
     
@@ -52,9 +50,7 @@ class ViewController: UIViewController {
        performSegue(withIdentifier: "a", sender: self)
     }
     
-    
-    
-    
+
     
 }
 

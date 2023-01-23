@@ -15,7 +15,10 @@
 		0D3D0720297693040035D67F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3D071E297693040035D67F /* LaunchScreen.storyboard */; };
 		0D3D0728297697EA0035D67F /* ListEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D0727297697EA0035D67F /* ListEventsViewController.swift */; };
 		0D3D072A2976B5EF0035D67F /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3D07292976B5EF0035D67F /* AddEventViewController.swift */; };
+		0D898094297E93C300AA2730 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D898093297E93C300AA2730 /* UserManager.swift */; };
+		0D898096297E944200AA2730 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D898095297E944200AA2730 /* User.swift */; };
 		0D8FBFE0297A8C6A00C24F83 /* row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8FBFDF297A8C6A00C24F83 /* row.swift */; };
+		0D8FBFE2297AC5FC00C24F83 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8FBFE1297AC5FC00C24F83 /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +32,10 @@
 		0D3D0721297693040035D67F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D3D0727297697EA0035D67F /* ListEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEventsViewController.swift; sourceTree = "<group>"; };
 		0D3D07292976B5EF0035D67F /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		0D898093297E93C300AA2730 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		0D898095297E944200AA2730 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0D8FBFDF297A8C6A00C24F83 /* row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = row.swift; sourceTree = "<group>"; };
+		0D8FBFE1297AC5FC00C24F83 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +72,11 @@
 				0D3D0715297693010035D67F /* SceneDelegate.swift */,
 				0D3D0717297693010035D67F /* ViewController.swift */,
 				0D3D0719297693010035D67F /* Main.storyboard */,
+				0D898093297E93C300AA2730 /* UserManager.swift */,
+				0D898095297E944200AA2730 /* User.swift */,
 				0D8FBFDF297A8C6A00C24F83 /* row.swift */,
 				0D3D07292976B5EF0035D67F /* AddEventViewController.swift */,
+				0D8FBFE1297AC5FC00C24F83 /* Event.swift */,
 				0D3D0727297697EA0035D67F /* ListEventsViewController.swift */,
 				0D3D071C297693040035D67F /* Assets.xcassets */,
 				0D3D071E297693040035D67F /* LaunchScreen.storyboard */,
@@ -152,6 +161,9 @@
 				0D3D072A2976B5EF0035D67F /* AddEventViewController.swift in Sources */,
 				0D3D0728297697EA0035D67F /* ListEventsViewController.swift in Sources */,
 				0D3D0714297693010035D67F /* AppDelegate.swift in Sources */,
+				0D898096297E944200AA2730 /* User.swift in Sources */,
+				0D8FBFE2297AC5FC00C24F83 /* Event.swift in Sources */,
+				0D898094297E93C300AA2730 /* UserManager.swift in Sources */,
 				0D3D0716297693010035D67F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

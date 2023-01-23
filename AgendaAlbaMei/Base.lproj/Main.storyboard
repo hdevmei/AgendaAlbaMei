@@ -210,14 +210,74 @@
                     <view key="view" contentMode="scaleToFill" id="4hj-Rz-28X">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="Py7-Iz-AXX">
+                                <rect key="frame" x="0.0" y="405" width="414" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Py7-Iz-AXX" secondAttribute="height" multiplier="23:9" id="Ts9-EN-tSm"/>
+                                </constraints>
+                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JMd-qe-tVj">
+                                <rect key="frame" x="59" y="321" width="306" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="yce-00-iko"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="inputNameEvent:" destination="iOt-qu-u4p" eventType="editingDidEnd" id="lJm-fH-iPZ"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isa-MK-ITn">
+                                <rect key="frame" x="162" y="660" width="90" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="est-5W-S7k"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add Event"/>
+                                <connections>
+                                    <action selector="addEvent:" destination="iOt-qu-u4p" eventType="touchUpInside" id="Lg3-on-N9O"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQG-8g-2li">
+                                <rect key="frame" x="94.5" y="220" width="225" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lQG-8g-2li" secondAttribute="height" multiplier="75:7" id="6KL-lC-7OD"/>
+                                    <constraint firstAttribute="width" constant="225" id="pIL-7K-Pf4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Z2c-r1-yst"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JMd-qe-tVj" firstAttribute="leading" secondItem="Z2c-r1-yst" secondAttribute="leading" constant="59" id="8Pv-1s-neP"/>
+                            <constraint firstItem="JMd-qe-tVj" firstAttribute="top" secondItem="Z2c-r1-yst" secondAttribute="top" constant="233" id="9le-uB-QcL"/>
+                            <constraint firstItem="lQG-8g-2li" firstAttribute="top" secondItem="Z2c-r1-yst" secondAttribute="top" constant="132" id="KL7-Vs-VPy"/>
+                            <constraint firstItem="Py7-Iz-AXX" firstAttribute="centerX" secondItem="Z2c-r1-yst" secondAttribute="centerX" id="OYH-Dx-DIr"/>
+                            <constraint firstItem="Isa-MK-ITn" firstAttribute="top" secondItem="Py7-Iz-AXX" secondAttribute="bottom" constant="93" id="Rns-V2-Skf"/>
+                            <constraint firstItem="Py7-Iz-AXX" firstAttribute="centerX" secondItem="Isa-MK-ITn" secondAttribute="centerX" id="TO7-0c-lQr"/>
+                            <constraint firstItem="Py7-Iz-AXX" firstAttribute="top" secondItem="JMd-qe-tVj" secondAttribute="bottom" constant="50" id="XOI-Dn-j1m"/>
+                            <constraint firstItem="Py7-Iz-AXX" firstAttribute="leading" secondItem="Z2c-r1-yst" secondAttribute="leading" id="apf-eS-dJb"/>
+                            <constraint firstItem="Z2c-r1-yst" firstAttribute="bottom" secondItem="Isa-MK-ITn" secondAttribute="bottom" constant="171" id="fn5-RA-T4P"/>
+                            <constraint firstItem="lQG-8g-2li" firstAttribute="centerX" secondItem="Z2c-r1-yst" secondAttribute="centerX" id="fqa-rk-tEU"/>
+                            <constraint firstItem="Py7-Iz-AXX" firstAttribute="centerX" secondItem="4hj-Rz-28X" secondAttribute="centerX" id="kf5-1T-iTm"/>
+                            <constraint firstItem="Z2c-r1-yst" firstAttribute="trailing" secondItem="JMd-qe-tVj" secondAttribute="trailing" constant="49" id="uQ3-7b-QVX"/>
+                            <constraint firstItem="Py7-Iz-AXX" firstAttribute="width" secondItem="4hj-Rz-28X" secondAttribute="width" id="vOu-QS-324"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Event" id="KuS-Yp-xfP"/>
+                    <connections>
+                        <outlet property="EventCreated" destination="lQG-8g-2li" id="nxN-v3-GLP"/>
+                        <outlet property="EventDate" destination="Py7-Iz-AXX" id="789-H9-PcM"/>
+                        <outlet property="EventName" destination="JMd-qe-tVj" id="qCf-xn-JyJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hf-4w-fZ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2057" y="-1077"/>
+            <point key="canvasLocation" x="1789.8550724637682" y="-1063.3928571428571"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pfE-dd-uwh">
