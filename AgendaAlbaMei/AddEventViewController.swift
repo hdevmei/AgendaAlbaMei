@@ -11,16 +11,11 @@ class AddEventViewController: UIViewController {
     
     @IBOutlet weak var EventCreated: UILabel!
     @IBOutlet weak var EventName: UITextField!
-    
     @IBOutlet weak var EventDate: UIDatePicker!
-    
-    
-    
     @IBAction func addEvent(_ sender: Any) {
         postEvent()
-        
     }
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +23,6 @@ class AddEventViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-   
     
     func postEvent(){
         let parameters: [String: Any] = ["name": EventName.text, "date": EventDate.date.timeIntervalSince1970]
@@ -48,10 +42,9 @@ class AddEventViewController: UIViewController {
                 let jsonRes = try? JSONSerialization.jsonObject(with: data!, options: [])
                 print("Response json is: \(jsonRes)")
             }
-            
         }.resume()
         
-        EventCreated.text = "Evento created!"
+        EventCreated.text = "Event created!"
     }
     
 }

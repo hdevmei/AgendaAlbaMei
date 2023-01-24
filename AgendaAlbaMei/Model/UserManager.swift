@@ -43,26 +43,15 @@ class UserManager: NSObject{
                 UserManager.UserList.append(User(json: i))
                 
             }
-            
             for i in UserList{
                 print("user:", i.userName, "pass:", i.pass)
             }
-            
         }catch{
         print("no se ha podido recibir los usuarios")
         }
-        
-        
-        
     }
     
-    static func createUser(){
-        var params : [String:Any] = [:]
-        
-        
-        
-        
-    }
+    
     
     
     

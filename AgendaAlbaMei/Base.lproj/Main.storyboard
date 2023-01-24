@@ -11,7 +11,7 @@
         <!--Log In-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AgendaAlbaMei" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LogInViewController" customModule="AgendaAlbaMei" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,12 +76,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="150.72463768115944" y="-573.21428571428567"/>
+            <point key="canvasLocation" x="126" y="-608"/>
         </scene>
         <!--Create New User-->
         <scene sceneID="7ie-AV-zhf">
             <objects>
-                <viewController id="NZD-Y9-aqN" sceneMemberID="viewController">
+                <viewController id="NZD-Y9-aqN" customClass="CreatedNewUserViewController" customModule="AgendaAlbaMei" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9nq-Bi-psM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,6 +93,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="userNameIntruduced:" destination="M2Z-l0-JHl" eventType="editingDidEnd" id="D3d-rJ-Xbl"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W0o-LF-S3O">
                                 <rect key="frame" x="87.5" y="272" width="239" height="34"/>
@@ -111,22 +114,41 @@
                                 <color key="tintColor" systemColor="tintColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Create User"/>
+                                <connections>
+                                    <action selector="CreateUserBtn:" destination="NZD-Y9-aqN" eventType="touchUpInside" id="LED-Hu-nfY"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8WV-xg-IT0">
+                                <rect key="frame" x="103" y="339" width="208" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5at-cu-Dvs"/>
-                        <color key="backgroundColor" red="0.50822396280000004" green="0.63164953749999997" blue="0.7323628848" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemGray3Color"/>
                         <constraints>
                             <constraint firstItem="dRx-tT-thz" firstAttribute="centerX" secondItem="9nq-Bi-psM" secondAttribute="centerX" id="DbT-pe-dS4"/>
                             <constraint firstItem="W0o-LF-S3O" firstAttribute="top" secondItem="Ug0-gU-A8l" secondAttribute="bottom" constant="50" id="KZn-AG-y3G"/>
+                            <constraint firstItem="dRx-tT-thz" firstAttribute="top" secondItem="8WV-xg-IT0" secondAttribute="bottom" constant="31" id="MuN-gH-bCA"/>
                             <constraint firstItem="Ug0-gU-A8l" firstAttribute="top" secondItem="5at-cu-Dvs" secondAttribute="top" constant="100" id="NTc-r9-JDb"/>
                             <constraint firstItem="dRx-tT-thz" firstAttribute="top" secondItem="W0o-LF-S3O" secondAttribute="bottom" constant="100" id="PHN-P6-iIv"/>
+                            <constraint firstItem="8WV-xg-IT0" firstAttribute="leading" secondItem="5at-cu-Dvs" secondAttribute="leading" constant="103" id="Weu-9q-lVx"/>
+                            <constraint firstItem="8WV-xg-IT0" firstAttribute="top" secondItem="W0o-LF-S3O" secondAttribute="bottom" constant="33" id="iBp-GS-JHw"/>
                             <constraint firstItem="W0o-LF-S3O" firstAttribute="centerX" secondItem="5at-cu-Dvs" secondAttribute="centerX" id="j3d-kd-pbC"/>
+                            <constraint firstItem="5at-cu-Dvs" firstAttribute="trailing" secondItem="8WV-xg-IT0" secondAttribute="trailing" constant="103" id="jjw-C5-Vd1"/>
                             <constraint firstItem="Ug0-gU-A8l" firstAttribute="centerX" secondItem="5at-cu-Dvs" secondAttribute="centerX" id="nar-py-6qa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create New User" id="tWn-gg-qNp"/>
+                    <connections>
+                        <outlet property="UserNameIntroduced" destination="Ug0-gU-A8l" id="ke3-nV-q7D"/>
+                        <outlet property="passWordIntroduced" destination="W0o-LF-S3O" id="fRz-Wl-7si"/>
+                        <outlet property="userCreatedLabel" destination="8WV-xg-IT0" id="MP2-tF-tc0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nU4-u2-VN6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="M2Z-l0-JHl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1034.7826086956522" y="-386.38392857142856"/>
         </scene>
@@ -224,9 +246,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="inputNameEvent:" destination="iOt-qu-u4p" eventType="editingDidEnd" id="lJm-fH-iPZ"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isa-MK-ITn">
                                 <rect key="frame" x="162" y="660" width="90" height="31"/>
@@ -268,7 +287,9 @@
                             <constraint firstItem="Py7-Iz-AXX" firstAttribute="width" secondItem="4hj-Rz-28X" secondAttribute="width" id="vOu-QS-324"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Event" id="KuS-Yp-xfP"/>
+                    <navigationItem key="navigationItem" title="Add Event" id="KuS-Yp-xfP">
+                        <barButtonItem key="backBarButtonItem" title="Event Liiist" id="dHP-Cg-6w5"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="EventCreated" destination="lQG-8g-2li" id="nxN-v3-GLP"/>
                         <outlet property="EventDate" destination="Py7-Iz-AXX" id="789-H9-PcM"/>
@@ -277,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hf-4w-fZ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1789.8550724637682" y="-1063.3928571428571"/>
+            <point key="canvasLocation" x="1812" y="-1077"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pfE-dd-uwh">
@@ -300,6 +321,9 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
