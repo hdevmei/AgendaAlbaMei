@@ -15,7 +15,7 @@ class AddEventViewController: UIViewController {
     @IBAction func addEvent(_ sender: Any) {
         postEvent()
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +48,5 @@ class AddEventViewController: UIViewController {
     }
     
 }
-
-
-
-
-
-
-
+    
+    

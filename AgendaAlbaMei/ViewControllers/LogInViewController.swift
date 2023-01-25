@@ -45,19 +45,15 @@ class LogInViewController: UIViewController {
         }
     }
     
-    
     func isUserCorrect() -> Bool{
         var userNameCorrect = false
-        
         for user in UserManager.UserList {
             if userNameIntroduced.text == user.userName{
                 userNameCorrect = true
             }
         }
-        
         return userNameCorrect
     }
-    
     
     func isPasswordCorrect() -> Bool {
         var passwordCorrect = false

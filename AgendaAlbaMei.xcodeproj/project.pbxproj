@@ -72,17 +72,22 @@
 			children = (
 				0D89809A297FE6A000AA2730 /* Delegate */,
 				0D89809B297FE6C500AA2730 /* ViewControllers */,
-				0D3D0719297693010035D67F /* Main.storyboard */,
-				0D898097297FD69A00AA2730 /* CreatedNewUserViewController.swift */,
-				0D8FBFDF297A8C6A00C24F83 /* row.swift */,
-				0D3D07292976B5EF0035D67F /* AddEventViewController.swift */,
+				0D4284CA29813BDB003C168C /* View */,
 				0D898099297FE68700AA2730 /* Model */,
-				0D3D0727297697EA0035D67F /* ListEventsViewController.swift */,
 				0D3D071C297693040035D67F /* Assets.xcassets */,
+				0D3D0719297693010035D67F /* Main.storyboard */,
 				0D3D071E297693040035D67F /* LaunchScreen.storyboard */,
 				0D3D0721297693040035D67F /* Info.plist */,
 			);
 			path = AgendaAlbaMei;
+			sourceTree = "<group>";
+		};
+		0D4284CA29813BDB003C168C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0D8FBFDF297A8C6A00C24F83 /* row.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		0D898099297FE68700AA2730 /* Model */ = {
@@ -108,6 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				0D3D0717297693010035D67F /* LogInViewController.swift */,
+				0D3D07292976B5EF0035D67F /* AddEventViewController.swift */,
+				0D3D0727297697EA0035D67F /* ListEventsViewController.swift */,
+				0D898097297FD69A00AA2730 /* CreatedNewUserViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

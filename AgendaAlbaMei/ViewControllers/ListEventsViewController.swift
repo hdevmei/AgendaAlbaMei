@@ -2,7 +2,6 @@ import UIKit
 
 import Foundation
 
-
 class ListEventsViewController: UIViewController{
 
     var ArrayEvents = [Event]()
@@ -21,7 +20,6 @@ class ListEventsViewController: UIViewController{
         myTable.delegate = self
 
         print(ArrayEvents)
-
     }
 
     
@@ -35,11 +33,9 @@ class ListEventsViewController: UIViewController{
         }catch{
             print("Data not founded")
         }
-        
             print(data)
             
             do{
-
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
                 
                 var eList: [Any] = []
@@ -53,9 +49,7 @@ class ListEventsViewController: UIViewController{
                 for e in eList as! [[String:Any]]{
                     
                     self.ArrayEvents.append(Event(json: e))
-                    
                 }
-
                 print(eList)
 
                 DispatchQueue.main.async {
@@ -82,10 +76,7 @@ extension ListEventsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         return ArrayEvents.count
-
     }
-
-    
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -100,14 +91,6 @@ extension ListEventsViewController: UITableViewDelegate, UITableViewDataSource{
         
         cell.name.text = evento.name
         cell.date.text = dateChanged.formatted().description
-
-        
-        
-       
-        
-        
-        
-        
 
         return cell
 
