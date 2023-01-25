@@ -8,57 +8,68 @@
 import UIKit
 
 class LogInViewController: UIViewController {
-    var usernameProvisional = "Mei"
-    var contrasenaProvisional = "1234"
-    var userNameIntroducido = ""
-    var contrasenaIntroducida = ""
+
     var loginCorrect: Bool = false
     
+    @IBOutlet weak var LoginWarinig: UILabel!
+    
+    @IBOutlet weak var userNameIntroduced: UITextField!
+    
+    @IBOutlet weak var userPasswordIntroduced: UITextField!
     
     
-    @IBAction func UserNameChange(_ sender: UITextField) {
-        userNameIntroducido = sender.text!
-        print(userNameIntroducido)
-    }
-    
-    
-    @IBAction func passwordChange(_ sender: UITextField) {
-        contrasenaIntroducida = sender.text!
-        print(contrasenaIntroducida)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        LoginWarinig.text = ""
         UserManager.getUsers()
-        checkUser()
     }
     
     
     @IBAction func gotToEventListBtn(_ sender: UIButton) {
-        
-        if contrasenaIntroducida == contrasenaProvisional && userNameIntroducido == usernameProvisional{
-            print("Acceso correcto")
-            goToListEvent()
-        } else {
-            print("Contraseña incorrecta")
-        }
+        UserManager.getUsers()
+
+        checkUser()
     }
-    
-    func goToListEvent(){
-       performSegue(withIdentifier: "a", sender: self)
-    }
-    
-    
+
     
     func checkUser(){
-        for name in UserManager.UserList{
-            
+        if isUserCorrect() && isPasswordCorrect() {
+            performSegue(withIdentifier: "a", sender: self)
+            print("Ok")
+        } else {
+            print("Wrong")
+            LoginWarinig.text = "User or password wrong"
+
         }
-        print(UserManager.UserList[1].userName)
     }
     
-
+    
+    func isUserCorrect() -> Bool{
+        var userNameCorrect = false
+        
+        for user in UserManager.UserList {
+            if userNameIntroduced.text == user.userName{
+                userNameCorrect = true
+            }
+        }
+        
+        return userNameCorrect
+    }
+    
+    
+    func isPasswordCorrect() -> Bool {
+        var passwordCorrect = false
+        
+        for user in UserManager.UserList {
+            if userPasswordIntroduced.text == user.pass{
+                passwordCorrect = true
+            }
+        }
+        return passwordCorrect
+        
+        
+    }
     
 }
-

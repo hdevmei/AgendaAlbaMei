@@ -29,9 +29,6 @@
                                 <rect key="frame" x="98" y="322" width="218" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                                <connections>
-                                    <action selector="passwordChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="q6M-XT-WTb"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eU-Wf-8QB">
                                 <rect key="frame" x="179" y="406" width="56" height="31"/>
@@ -50,19 +47,28 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="UserNameChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="5fS-YH-cBi"/>
-                                </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrA-ys-B6J">
+                                <rect key="frame" x="26" y="472" width="362" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="362" id="XUb-Hp-hsT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.50822396279952242" green="0.63164953747953823" blue="0.73236288483609857" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="JrA-ys-B6J" firstAttribute="top" secondItem="6eU-Wf-8QB" secondAttribute="bottom" constant="35" id="7yW-99-1Ew"/>
+                            <constraint firstItem="vEj-k1-uDh" firstAttribute="top" secondItem="JrA-ys-B6J" secondAttribute="bottom" constant="15" id="AxX-pH-B20"/>
                             <constraint firstItem="vEj-k1-uDh" firstAttribute="top" secondItem="6eU-Wf-8QB" secondAttribute="bottom" constant="100" id="B0G-C9-B8D"/>
                             <constraint firstItem="m5H-pQ-sBd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="HOt-PJ-Cf1"/>
                             <constraint firstItem="v1L-hb-E7X" firstAttribute="top" secondItem="m5H-pQ-sBd" secondAttribute="bottom" constant="50" id="IU5-dL-Kmm"/>
                             <constraint firstItem="6eU-Wf-8QB" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="OZ9-Df-B7s"/>
                             <constraint firstItem="m5H-pQ-sBd" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nar-0J-Dgg"/>
+                            <constraint firstItem="JrA-ys-B6J" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="szN-Zh-CQh"/>
                             <constraint firstItem="v1L-hb-E7X" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="vTe-CO-EVt"/>
                             <constraint firstItem="6eU-Wf-8QB" firstAttribute="top" secondItem="v1L-hb-E7X" secondAttribute="bottom" constant="50" id="xCM-PQ-jUc"/>
                             <constraint firstItem="v1L-hb-E7X" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.52657" id="y88-uA-gdj"/>
@@ -71,12 +77,15 @@
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="Bga-kd-6EC"/>
                     <connections>
+                        <outlet property="LoginWarinig" destination="JrA-ys-B6J" id="mOU-Ky-XPV"/>
+                        <outlet property="userNameIntroduced" destination="m5H-pQ-sBd" id="ERj-aC-zWQ"/>
+                        <outlet property="userPasswordIntroduced" destination="v1L-hb-E7X" id="OrS-zu-0sv"/>
                         <segue destination="8jg-50-lPB" kind="show" identifier="a" id="lWt-yg-RkZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="126" y="-608"/>
+            <point key="canvasLocation" x="124.6376811594203" y="-608.03571428571422"/>
         </scene>
         <!--Create New User-->
         <scene sceneID="7ie-AV-zhf">

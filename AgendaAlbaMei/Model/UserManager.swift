@@ -11,7 +11,7 @@ import Foundation
 class UserManager: NSObject{
     static var UserList: [User] = []
     
-   static let urlUser: String = "https://superapi.netlify.app/api/db/users"
+    static let urlUser: String = "https://superapi.netlify.app/api/db/users"
     
     static let urlLogin: String = "https://superapi.netlify.app/api/login"
     
@@ -30,7 +30,7 @@ class UserManager: NSObject{
         }
         do{
             let json =  try JSONSerialization.jsonObject(with: data,
-                                                      options: .mutableContainers)
+                                                         options: .mutableContainers)
             var tempList : [Any] = []
             
             for i in json as! [Any]{
@@ -41,13 +41,14 @@ class UserManager: NSObject{
             
             for i in tempList as! [[String:Any]]{
                 UserManager.UserList.append(User(json: i))
-                
             }
+            
             for i in UserList{
                 print("user:", i.userName, "pass:", i.pass)
             }
+            
         }catch{
-        print("no se ha podido recibir los usuarios")
+            print("no se ha podido recibir los usuarios")
         }
     }
     
